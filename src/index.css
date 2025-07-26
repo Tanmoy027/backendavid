@@ -1,0 +1,454 @@
+/* Import all the original CSS files */
+@import url('/assets/css/bootstrap.min.css');
+@import url('/assets/css/font-awesome-pro.css');
+@import url('/assets/fonts/remixicon.css');
+@import url('/assets/css/magnific-popup.css');
+@import url('/assets/css/nice-select.min.css');
+@import url('/assets/css/animate.min.css');
+@import url('/assets/css/mobilemenu.css');
+@import url('/assets/css/slick.min.css');
+@import url('/assets/css/spacing.css');
+@import url('/assets/css/style.css');
+@import url('/assets/css/responsive.css');
+
+/* Custom styles from original style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/* Let the main CSS handle the root variables - removing conflicting overrides */
+
+/* Let the main CSS handle body styling to avoid conflicts */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; 
+}
+
+/* Logos animation */
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos h2{
+  font-size: 32px;
+  padding-top: 0px ;
+}
+
+.logos {
+  color: #ccc;
+  overflow: hidden;
+  padding: 100px 0;
+  background: black;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), black);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), black);
+}
+
+.logos-slide {
+  display: inline-block;
+  width: max-content;
+  animation: 55s slide infinite linear;
+}
+
+.logos-slide img {
+  margin: 0 100px;
+}
+
+.logos-slide .kitab{height: 80px;}
+.logos-slide .afsin{height: 50px;}
+.logos-slide .LogoW{height: 40px;}
+.logos-slide .marchbid{height: 40px;}
+.logos-slide .Asset_1 {height: 40px;}
+.logos-slide .Asset_2{height: 30px;}
+
+/* Recent works section */
+.recentworks {
+  text-align: center;
+}
+
+.works h2 {
+  text-decoration: underline;
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #E04B18;
+  border-radius: 8px;
+  background: rgba(224, 75, 24, 0.1);
+  box-shadow: 0 0 20px rgba(224, 75, 24, 0.5);
+  transition: all 0.3s ease;
+}
+
+.works h2:hover {
+  box-shadow: 0 0 30px rgba(224, 75, 24, 0.8);
+  transform: translateY(-2px);
+}
+
+.works a{
+  margin: 40px 0px;
+  transition: .5s;
+}
+
+.works a:hover {
+  background: #E04B18;
+  color: #000;
+  box-shadow: 0 0 5px #E04B18,
+  0 0 5px #E04B18,
+  0 0 5px #E04B18,
+  0 0 5px #E04B18;
+}
+
+.work-container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.works {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.works h2{
+  color: white;
+}
+
+.tshirt-item img,
+.logo-item img,
+.video-item video {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tshirt-item,
+.video-item,
+.logo-item {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #252525;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding-bottom: 0px;
+}
+
+.product-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.item-price {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fdf8f8; 
+}
+
+/* Video section */
+.video-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px;
+  background-color: #F4F3ED;
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 960px;
+  aspect-ratio: 2 / 1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Blog section */
+.modern-blog-section {
+  padding: 80px 20px;
+  background: #f0f0f0;
+  position: relative;
+}
+
+.blog-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.blog-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.blog-nav-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.blog-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #87CEEB;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.blog-dot.active {
+  background: #4A90E2;
+  transform: scale(1.2);
+}
+
+.blog-nav-arrows {
+  display: flex;
+  gap: 15px;
+}
+
+.blog-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #87CEEB;
+  color: #4A90E2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.blog-arrow:hover {
+  background: #4A90E2;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(135, 206, 235, 0.3);
+}
+
+.blog-cards-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.blog-cards-wrapper {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.4s ease-in-out;
+}
+
+.modern-blog-card {
+  min-width: 380px;
+  max-width: 380px;
+  flex: 0 0 auto;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.modern-blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.blog-card-image {
+  width: 100%;
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.blog-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.7) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 25px;
+}
+
+.blog-card-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-right: 15px;
+  object-fit: cover;
+}
+
+.blog-card-author {
+  color: white;
+}
+
+.blog-card-author h4 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.blog-card-content {
+  padding: 30px;
+}
+
+.blog-card-content p {
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+@@ .. @@
+/* Remove custom cursor */
+.App {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Remove all custom cursor styles */
+#magic-cursor,
+#ball {
+  display: none !important;
+}
+
+/* Footer */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 20px 40px;
+  flex-wrap: wrap;
+}
+
+.footer-left,
+.footer-right {
+  padding: 55px;
+  display: flex;
+  gap: 20px;
+}
+
+.footer-right{
+  font-size: 55px;
+}
+
+.social-link,
+.contact-link {
+  font-family: "Oswald", sans-serif;
+  color: #E04B18;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  text-transform: uppercase;
+}
+
+.social-link:hover,
+.contact-link:hover {
+  color: #00bfff;
+}
+
+/* Loading states */
+.video-loading,
+.video-placeholder,
+.works-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background: #f0f0f0;
+  color: #666;
+  font-size: 1.1rem;
+  border-radius: 8px;
+}
+
+.video-wrapper .video-loading,
+.video-wrapper .video-placeholder {
+  height: 100%;
+  background: #000;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .modern-blog-card {
+    min-width: 250px;
+  }
+  
+  .blog-navigation {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modern-blog-card {
+    min-width: 200px;
+  }
+  
+  .modern-blog-section {
+    padding: 60px 15px;
+  }
+}

@@ -1,0 +1,254 @@
+/* Client Page Styles */
+
+/* Filter controls - same as tshirt page */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: #252525;
+  border: 1px solid #444;
+  color: #ddd;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #e04b18;
+  color: white;
+  border-color: #e04b18;
+}
+
+/* Client Gallery Section */
+.client-gallery {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #121212;
+  color: white;
+  min-height: 80vh;
+}
+
+.client-gallery h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+}
+
+/* Client Grid */
+.client-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+/* Client Items */
+.client-item {
+  background-color: #252525;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 2px solid transparent;
+}
+
+.client-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(224, 75, 24, 0.3);
+  border-color: #e04b18;
+}
+
+/* Placeholder for client images */
+.client-placeholder {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #333, #444);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid #e04b18;
+  position: relative;
+  overflow: hidden;
+}
+
+.client-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(224, 75, 24, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.client-item:hover .client-placeholder::before {
+  left: 100%;
+}
+
+.placeholder-icon {
+  font-size: 3rem;
+  color: #e04b18;
+  transition: transform 0.3s;
+}
+
+.client-item:hover .placeholder-icon {
+  transform: scale(1.1);
+}
+
+/* Client Information */
+.client-item h3 {
+  margin: 15px 10px 10px 10px;
+  font-family: "Oswald", sans-serif;
+  font-size: 24px;
+  color: #e04b18;
+  font-weight: 600;
+}
+
+.client-info {
+  padding: 0 15px 20px 15px;
+}
+
+.client-description {
+  font-size: 14px;
+  color: #cccccc;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Client Hero Section */
+.client-hero-section {
+  position: relative;
+  height: 50vh;
+  background-color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 60px 20px;
+  color: white;
+}
+
+.client-hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(224, 75, 24, 0.1) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.client-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.client-hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: #e04b18;
+}
+
+.client-hero-content p {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  color: #cccccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .client-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .client-gallery {
+    padding: 40px 15px;
+  }
+  
+  .controls {
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .client-hero-section {
+    height: 40vh;
+    padding: 40px 15px;
+  }
+  
+  .client-placeholder {
+    height: 150px;
+  }
+  
+  .placeholder-icon {
+    font-size: 2.5rem;
+  }
+}
+
+/* Animation for hero section */
+@keyframes client-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.client-hero-content h1 {
+  animation: client-fadeIn 1s ease-out;
+}
+
+.client-hero-content p {
+  animation: client-fadeIn 1.2s ease-out;
+}
+
+/* Loading state for future database integration */
+.client-item.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.client-item.loading .client-placeholder {
+  background: linear-gradient(90deg, #333 25%, #444 37%, #333 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}

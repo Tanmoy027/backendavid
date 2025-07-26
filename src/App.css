@@ -1,0 +1,173 @@
+/* Additional styles specific to React components */
+.App {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Ensure proper styling for React components */
+.react-component {
+  width: 100%;
+}
+
+/* Custom cursor styles */
+#magic-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+#ball {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: #E04B18;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.1s ease-out;
+}
+
+#ball.hovered {
+  transform: scale(2);
+  opacity: 0.5;
+}
+
+/* Progress wrap styles */
+.progress-wrap {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  height: 46px;
+  width: 46px;
+  cursor: pointer;
+  display: block;
+  border-radius: 50px;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.2);
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 200ms linear;
+}
+
+.progress-wrap.active-progress {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.progress-wrap::after {
+  position: absolute;
+  font-family: 'remixicon';
+  content: '\ea4c';
+  text-align: center;
+  line-height: 46px;
+  font-size: 24px;
+  color: #E04B18;
+  left: 0;
+  top: 0;
+  height: 46px;
+  width: 46px;
+  cursor: pointer;
+  display: block;
+  z-index: 1;
+  transition: all 200ms linear;
+}
+
+.progress-wrap:hover::after {
+  opacity: 0;
+}
+
+.progress-wrap::before {
+  position: absolute;
+  font-family: 'remixicon';
+  content: '\ea4c';
+  text-align: center;
+  line-height: 46px;
+  font-size: 24px;
+  opacity: 0;
+  background-image: linear-gradient(298deg, #E04B18, #E04B18);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  left: 0;
+  top: 0;
+  height: 46px;
+  width: 46px;
+  cursor: pointer;
+  display: block;
+  z-index: 2;
+  transition: all 200ms linear;
+}
+
+.progress-wrap:hover::before {
+  opacity: 1;
+}
+
+.progress-circle path {
+  stroke: #E04B18;
+  stroke-width: 4;
+  box-sizing: border-box;
+  transition: all 200ms linear;
+}
+
+/* Preloader styles */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader svg {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  fill: #E04B18;
+}
+
+.preloader-heading {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.load-text {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.2em;
+}
+
+.load-text span {
+  display: inline-block;
+  animation: wave 1.5s ease-in-out infinite;
+}
+
+.load-text span:nth-child(1) { animation-delay: 0.1s; }
+.load-text span:nth-child(2) { animation-delay: 0.2s; }
+.load-text span:nth-child(3) { animation-delay: 0.3s; }
+.load-text span:nth-child(4) { animation-delay: 0.4s; }
+.load-text span:nth-child(5) { animation-delay: 0.5s; }
+.load-text span:nth-child(6) { animation-delay: 0.6s; }
+.load-text span:nth-child(7) { animation-delay: 0.7s; }
+
+@keyframes wave {
+  0%, 60%, 100% {
+    transform: initial;
+  }
+  30% {
+    transform: translateY(-15px);
+  }
+}

@@ -1,0 +1,503 @@
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+:root {
+  --primary-color: #222;
+  --secondary-color: #FF422E;
+  --background-color: rgb(230, 234, 238);
+  --text-color: #222;
+}
+
+body {
+
+  font-family: "Poppins", sans-serif;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  you have asked this font */
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: black;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; 
+ 
+}
+
+/* the loading */
+
+
+
+
+/* new slide  */
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos h2{
+  font-size: 32px;
+  padding-top: 0px ;
+  /* margin-bottom: 30px; */
+}
+.logos {
+  /* text-align: center; */
+  color: #ccc;
+  overflow: hidden;
+  padding: 100px 0;
+  background:  black;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), black);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), black);
+}
+
+/* .logos:hover .logos-slide {
+  animation-play-state: paused;
+} */
+
+.logos-slide {
+display: inline-block; /* Use flexbox for horizontal layout */
+  width: max-content; /* Ensures it can grow with logos */
+  animation: 55s slide infinite linear;
+}
+
+.logos-slide img {
+  /* height: 50px; */
+  margin: 0 100px;
+}
+
+.logos-slide .kitab{height: 80px;}
+.logos-slide .afsin{  height: 50px;}
+.logos-slide .LogoW{  height: 40px;}
+.logos-slide .marchbid{  height: 40px;}
+.logos-slide .Asset_1 {height: 40px;}
+.logos-slide .Asset_2{ height: 30px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Section Common Styles */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+.section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background: #333;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  .menu.active {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .service-boxes {
+    flex-direction: column;
+  }
+  .portfolio-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 1505px){
+  .hero.scrolled .profile-pic {
+    transform: rotate(0deg) translateX(-400px); /* Move profile picture slightly to the left */
+  }
+  .about-text {
+    
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateX(550px) translateY(-50%);
+   
+  } 
+
+}
+@media (max-width: 1200px){
+  /* .profile-pic {
+    width: 280px;
+    height: 380px;
+  } */
+  .hero.scrolled .profile-pic {
+    transform: rotate(0deg) translateX(-300px); /* Move profile picture slightly to the left */
+  }
+  .about-text {
+    
+    position: absolute;
+    top: 50%;
+    left: 20%;
+  
+   
+  } 
+
+}
+
+
+/* my work section recent works  */
+/* Overall container layout */
+
+
+
+
+
+
+
+
+.recentworks {
+ text-align: center;
+}
+.recentworks h2{
+  /* margin: 55px;
+  color: white;
+   font-family: "Oswald", sans-serif;
+   */
+
+}
+.works h2{
+  text-decoration: underline;
+}
+.works a{
+  margin: 40px 0px;
+  transition: .5s;
+}
+.works a:hover {
+  background: #E04B18;
+  color: #000;
+  box-shadow: 0 0 5px #E04B18,
+  0 0 5px #E04B18,
+  0 0 5px #E04B18,
+  0 0 5px #E04B18;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.work-container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap; /* for responsiveness */
+}
+
+/* Each column (t-shirt, video, design) */
+
+.works {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* min-width: 280px;  */
+  /* prevents columns from becoming too narrow */
+}
+
+.works h2{
+  list-style: white;
+}
+
+/* Image and video sizing */
+.tshirt-item img,
+.logo-item img,
+.video-item video {
+width:  100%;
+height: 100%;
+/* object-fit: cover; */
+border-radius: 8px;
+ border-bottom-left-radius:0px ;
+  border-bottom-right-radius:0px ;
+ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.tshirt-item p ,
+.video-item p,
+.logo-item p{
+  /* position: absolute;
+  bottom: 5px; */
+}
+/* Responsive stacking on smaller screens */
+/* Common box styling for all items *//* Shared item style */
+.tshirt-item,
+.video-item,
+.logo-item {
+  /* position: relative; */
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #252525;
+  /* border: 1px solid #ccc; */
+  /* overflow: hidden; */
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  /* align-items: center; */
+  justify-content: flex-start;
+  padding: 0px;
+  box-sizing: border-box;
+  border-radius: 8px;
+ 
+  padding-bottom: 0px;
+}
+
+/* Price text */
+
+
+
+.product-item{
+ display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.item-price {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fdf8f8; 
+    /* text-align:right; */
+  }
+  .item-info{
+       /* text-align:left; */
+  }
+
+
+
+
+
+/* footer  */
+
+
+
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 20px 40px;
+  flex-wrap: wrap;
+}
+
+.footer-left,
+.footer-right {
+  padding:55px ;
+  display: flex;
+  gap: 20px;
+}
+.footer-right{
+  font-size: 55px;
+}
+
+.social-link,
+.contact-link {
+  font-family: "Oswald", sans-serif;
+  color: #E04B18;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+   text-transform: uppercase;
+  
+}
+
+.social-link:hover,
+.contact-link:hover {
+  color: #00bfff; /* Light blue on hover */
+}
+
+
+
+
+
+/* vedio  */
+
+.video-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+    background-color: #F4F3ED;
+  }
+
+  .video-wrapper {
+    width: 100%;
+    max-width: 960px; /* 960x480 = 2:1 ratio */
+    aspect-ratio: 2 / 1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #000;
+  }
+
+  .video-wrapper video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+.blog-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f9f9f9;
+  padding: 30px;
+  overflow: hidden;
+}
+
+.blog-carousel-wrapper {
+  overflow: hidden;
+  max-width: 1500px;
+  margin: 0 auto; /* centers the wrapper */
+  width: 100%;
+}
+
+
+.blog-carousel {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.4s ease-in-out;
+}
+
+.blog-card {
+  min-width: 300px;
+  flex: 0 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  font-weight: bold;
+}
+
+.nav-btn {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.nav-btn:hover {
+  background: #555;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .blog-card {
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-card {
+    min-width: 200px;
+  }
+}
+
+
+
+
+/* dropdown */
