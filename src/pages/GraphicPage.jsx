@@ -7,11 +7,27 @@ import Preloader from "../components/Preloader"
 import ScrollToTop from "../components/ScrollToTop"
 import CustomCursor from "../components/CustomCursor"
 import "../styles/client.css"
+import { graphicsService } from "../lib/graphicsService"
 
 const GraphicDesignPage = () => {
   const [activeFilter, setActiveFilter] = useState("all")
+  const [graphics, setGraphics] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    const fetchGraphics = async () => {
+      try {
+        const data = await graphicsService.getAllGraphics()
+        setGraphics(data)
+      } catch (error) {
+        console.error("Error fetching graphics:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchGraphics()
+
     // Initialize WOW animations
     if (window.WOW) {
       new window.WOW({
@@ -24,17 +40,12 @@ const GraphicDesignPage = () => {
     }
   }, [])
 
+  const filteredGraphics = activeFilter === "all"
+    ? graphics
+    : graphics.filter(item => item.category === activeFilter)
+
   const handleFilterClick = (filter) => {
     setActiveFilter(filter)
-
-    const designItems = document.querySelectorAll(".design-item")
-    designItems.forEach((item) => {
-      if (filter === "all" || item.getAttribute("data-category") === filter) {
-        item.style.display = "block"
-      } else {
-        item.style.display = "none"
-      }
-    })
   }
 
   return (
@@ -89,88 +100,25 @@ const GraphicDesignPage = () => {
         </div>
 
         <div className="client-grid">
-          {/* Graphic Design Portfolio Items */}
-          <div className="design-item" data-category="branding">
-            <div className="client-placeholder">
-              <div className="placeholder-icon">🎨</div>
-            </div>
-            <h3>Brand Identity for NovaTech</h3>
-            <div className="client-info">
-              <p className="client-description">Logo & Brand Guidelines</p>
-            </div>
-          </div>
-
-          <div className="design-item" data-category="web">
-            <div className="client-placeholder">
-              <div className="placeholder-icon">💻</div>
-            </div>
-            <h3>Website Design for GreenLeaf</h3>
-            <div className="client-info">
-              <p className="client-description">Responsive Web UI/UX</p>
-            </div>
-          </div>
-
-          <div className="design-item" data-category="print">
-            <div className="client-placeholder">
-              <div className="placeholder-icon">📰</div>
-            </div>
-            <h3>Brochure for Urban Realty</h3>
-            <div className="client-info">
-              <p className="client-description">Corporate Brochure Design</p>
-            </div>
-          </div>
-
-          <div className="design-item" data-category="illustration">
-            <div className="client-placeholder">
-              <div className="placeholder-icon">🖌️</div>
-            </div>
-            <h3>Custom Illustrations for EduKids</h3>
-            <div className="client-info">
-              <p className="client-description">Children’s Book Artwork</p>
-            </div>
-          </div>
-
-          <div className="design-item" data-category="branding">
-            <div className="client-placeholder">
-              <div className="placeholder-icon">🌟</div>
-            </div>
-            <h3>Rebranding for Stellar Media</h3>
-            <div className="client-info">
-              <p className="client-description">Logo & Stationery Design</p>
-            </div>
-          </div>
-
-          <div className="design-item" data-category="web">
-            <div className="client-placeholder">
-              <div className="placeholder-icon">📱</div>
-            </div>
-            <h3>App UI for FitTrack</h3>
-            <div className="client-info">
-              <p className="client-description">Mobile App Interface Design</p>
-            </div>
-          </div>
-
-          <div className="design-item" data-category="print">
-            <div className="client-placeholder">
-              <div className="placeholder-icon">📖</div>
-            </div>
-            <h3>Magazine Layout for Trendy</h3>
-            <div className="client-info">
-              <p className="client-description">Fashion Magazine Design</p>
-            </div>
-          </div>
-
-          <div className="design-item" data-category="illustration">
-            <div className="client-placeholder">
-              <div className="placeholder-icon">🎉</div>
-            </div>
-            <h3>Event Poster for ArtFest</h3>
-            <div className="client-info">
-              <p className="client-description">Poster & Flyer Illustration</p>
-            </div>
-          </div>
+          {loading ? (
+            <p>Loading graphics...</p>
+          ) : filteredGraphics.length > 0 ? (
+            filteredGraphics.map((item) => (
+              <div key={item.id} className="design-item" data-category={item.category}>
+                <img src={item.image_url} alt={item.title} className="graphic-image" />
+                <h3>{item.title}</h3>
+                <div className="client-info">
+                  <p className="client-description">{item.description}</p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>No graphics found in this category.</p>
+          )}
         </div>
       </section>
+
+
 
       <Footer />
     </>

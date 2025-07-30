@@ -161,10 +161,10 @@ export const recentWorksService = {
 
 // Storage service for image uploads
 export const storageService = {
-  // Upload image to homerecentwork bucket
-  async uploadImage(file, fileName) {
+  // Upload image to bucket
+  async uploadImage(file, fileName, bucket = 'homerecentwork') {
     try {
-      console.log('Starting image upload...')
+      console.log(`Starting image upload to ${bucket}...`)
       console.log('File:', file.name, 'Size:', file.size)
       
       // Generate unique filename
@@ -174,7 +174,7 @@ export const storageService = {
       console.log('Uploading to bucket with filename:', uniqueFileName)
       
       const { data, error } = await supabaseAdmin.storage
-        .from('homerecentwork')
+        .from(bucket)
         .upload(uniqueFileName, file, {
           cacheControl: '3600',
           upsert: false
@@ -189,7 +189,7 @@ export const storageService = {
 
       // Get public URL
       const { data: { publicUrl } } = supabaseAdmin.storage
-        .from('homerecentwork')
+        .from(bucket)
         .getPublicUrl(uniqueFileName)
 
       console.log('Generated public URL:', publicUrl)
@@ -204,11 +204,11 @@ export const storageService = {
     }
   },
 
-  // Delete image from homerecentwork bucket
-  async deleteImage(filePath) {
+  // Delete image from bucket
+  async deleteImage(filePath, bucket = 'homerecentwork') {
     try {
       const { error } = await supabaseAdmin.storage
-        .from('homerecentwork')
+        .from(bucket)
         .remove([filePath])
 
       if (error) throw error
@@ -218,9 +218,9 @@ export const storageService = {
   },
 
   // Get public URL for a file
-  getPublicUrl(filePath) {
+  getPublicUrl(filePath, bucket = 'homerecentwork') {
     const { data: { publicUrl } } = supabaseAdmin.storage
-      .from('homerecentwork')
+      .from(bucket)
       .getPublicUrl(filePath)
     
     return publicUrl

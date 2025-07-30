@@ -40,9 +40,9 @@ const Header = () => {
                       <ul>
                         <li><Link to="/" className="linkstyle">Home</Link></li>
                         <li>
-                          <a href="#" className="linkstyle">
+                          <span className="linkstyle">
                             Brands <i className="fas fa-caret-down"></i>
-                          </a>
+                          </span>
                           <div className="dropdown__menu">
                             <ul>
                               <li></li>
@@ -56,15 +56,14 @@ const Header = () => {
                         </li>
                         
                         <li>
-                          <a href="#" className="linkstyle">
+                          <span className="linkstyle">
                             services<i className="fas fa-caret-down"></i>
-                          </a>
+                          </span>
                           <div className="dropdown__menu">
                             <ul>
-                              <li></li>
-                              <li><a href="#">Videos editing</a></li>
-                              <li><a href="#">Graphics design</a></li>
-                              <li><Link to="/tshirt">T-shirts design</Link></li>
+                              <li><Link to="/videos">Videos Packages</Link></li>
+                              <li><Link to="/graphics-package">Graphics Packages</Link></li>
+                              <li><Link to="/tshirts-package">T-shirt Packages</Link></li>
                             </ul>
                           </div>
                         </li>
@@ -83,19 +82,18 @@ const Header = () => {
                         <li>
                           <Link to="/graphic" className="linkstyle">graphics</Link>
                         </li>
-                        <li><a href="#" className="linkstyle">T-shirt</a></li>
+                        <li><Link to="/tshirt" className="linkstyle">T-shirts</Link></li>
                       </ul>
                     </div>
 
                     {/* Mobile Menu Icon */}
                     <div className="side-menu-icon d-lg-none text-end">
-                      <a 
-                        href="javascript:void(0)" 
+                      <button 
                         className="info-toggle-btn f-right sidebar-toggle-btn"
                         onClick={() => setIsSidebarOpen(true)}
                       >
                         <i className="fal fa-bars"></i>
-                      </a>
+                      </button>
                     </div>
 
                     {/* Mobile Main Menu */}

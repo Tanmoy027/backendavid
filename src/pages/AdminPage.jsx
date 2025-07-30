@@ -310,8 +310,24 @@ const AdminPage = () => {
     <div className="admin-panel">
       <header className="admin-header">
         <h1>Portfolio Admin Panel</h1>
-        <button onClick={handleLogout} className="logout-btn">Logout</button>
-        <Link to="/admin-graphics" className="admin-nav-btn">Graphics Admin</Link>
+        <button 
+          onClick={async () => {
+            await authService.signOut();
+            window.location.href = '/admin-panel-access-2024';
+          }} 
+          className="logout-btn"
+          style={{
+            background: '#e74c3c',
+            color: '#fff',
+            border: 'none',
+            padding: '8px 16px',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease'
+          }}
+        >
+          Logout
+        </button>
       </header>
 
       <nav className="admin-nav">
@@ -325,8 +341,11 @@ const AdminPage = () => {
           className={`nav-btn ${activeTab === 'works' ? 'active' : ''}`}
           onClick={() => setActiveTab('works')}
         >
-          Recent Works
+          Recent Work
         </button>
+        <Link to="/admin-graphics" className="tab-button">
+          Graphics Admin
+        </Link>
       </nav>
 
       <main className="admin-content">
