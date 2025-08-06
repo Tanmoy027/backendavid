@@ -65,3 +65,38 @@
   color: #e04b18;
   font-weight: bold;
 }
+
+.video-card {
+  background: #252525;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 10px;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.video-card .card-thumbnail img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.video-card .card-content {
+  margin-top: 15px;
+}
+
+.video-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #e04b18;
+}
+
+.video-card p {
+  font-size: 1rem;
+  color: #ddd;
+}

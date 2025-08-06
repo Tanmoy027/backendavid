@@ -346,6 +346,15 @@ const AdminPage = () => {
         <Link to="/admin-graphics" className="tab-button">
           Graphics Admin
         </Link>
+        <Link to="/admin-tshirts" className="tab-button">
+          T-Shirt Admin
+        </Link>
+        <Link to="/admin-brands" className="tab-button">
+          Brands Admin
+        </Link>
+        <Link to="/admin-videos" className="tab-button">
+          Videos Admin
+        </Link>
       </nav>
 
       <main className="admin-content">

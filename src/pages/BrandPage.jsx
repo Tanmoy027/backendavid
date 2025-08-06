@@ -6,14 +6,14 @@ import Footer from "../components/Footer"
 import Preloader from "../components/Preloader"
 import ScrollToTop from "../components/ScrollToTop"
 import CustomCursor from "../components/CustomCursor"
-import { tshirtsService } from "../lib/tshirtsService"
+import { brandsService } from "../lib/brandsService"
 import "../styles/tshirt.css"
 
-const TshirtPage = () => {
+const BrandPage = () => {
   const [activeFilter, setActiveFilter] = useState("all")
-  const [tshirts, setTshirts] = useState([])
+  const [brands, setBrands] = useState([])
   const [loading, setLoading] = useState(true)
-  const [filteredTshirts, setFilteredTshirts] = useState([])
+  const [filteredBrands, setFilteredBrands] = useState([])
 
   useEffect(() => {
     // Initialize WOW animations
@@ -27,28 +27,28 @@ const TshirtPage = () => {
       }).init()
     }
     
-    // Load tshirts data
-    loadTshirts()
+    // Load brands data
+    loadBrands()
   }, [])
 
   useEffect(() => {
-    // Filter tshirts when activeFilter or tshirts change
+    // Filter brands when activeFilter or brands change
     if (activeFilter === "all") {
-      setFilteredTshirts(tshirts)
+      setFilteredBrands(brands)
     } else {
-      setFilteredTshirts(tshirts.filter(tshirt => tshirt.category === activeFilter))
+      setFilteredBrands(brands.filter(brand => brand.category === activeFilter))
     }
-  }, [activeFilter, tshirts])
+  }, [activeFilter, brands])
 
-  const loadTshirts = async () => {
+  const loadBrands = async () => {
     try {
-      const data = await tshirtsService.getAllTshirts()
-      console.log('Raw tshirts data:', data)
-      // Show all tshirts for debugging, not just active ones
-      setTshirts(data)
-      setFilteredTshirts(data)
+      const data = await brandsService.getAllBrands()
+      console.log('Raw brands data:', data)
+      // Show all brands for debugging, not just active ones
+      setBrands(data)
+      setFilteredBrands(data)
     } catch (error) {
-      console.error('Failed to load tshirts:', error)
+      console.error('Failed to load brands:', error)
     } finally {
       setLoading(false)
     }
@@ -58,9 +58,9 @@ const TshirtPage = () => {
     setActiveFilter(filter)
   }
 
-  // Get unique categories from tshirts
+  // Get unique categories from brands
   const getCategories = () => {
-    const categories = [...new Set(tshirts.map(tshirt => tshirt.category))]
+    const categories = [...new Set(brands.map(brand => brand.category))]
     return categories
   }
 
@@ -74,8 +74,8 @@ const TshirtPage = () => {
       {/* Hero Section */}
       <section className="vm-hero-section">
         <div className="vm-hero-content">
-          <h1>T-Shirt Portfolio</h1>
-          <p>Explore our collection of premium t-shirt designs and custom apparel</p>
+          <h1>Brand Portfolio</h1>
+          <p>Explore our collection of premium brand designs and custom branding solutions</p>
         </div>
       </section>
 
@@ -87,7 +87,7 @@ const TshirtPage = () => {
             className={`filter-btn ${activeFilter === "all" ? "active" : ""}`}
             onClick={() => handleFilterClick("all")}
           >
-            All T-Shirts
+            All Brands
           </button>
           {getCategories().map(category => (
             <button
@@ -103,25 +103,25 @@ const TshirtPage = () => {
         <div className="poster-grid">
           {loading ? (
             <div className="loading-message">
-              <p>Loading t-shirt designs...</p>
+              <p>Loading brand designs...</p>
             </div>
-          ) : filteredTshirts.length === 0 ? (
+          ) : filteredBrands.length === 0 ? (
             <div className="no-items-message">
-              <p>No t-shirt designs found.</p>
+              <p>No brand designs found.</p>
             </div>
           ) : (
-            filteredTshirts.map(tshirt => (
-              <div key={tshirt.id} className="poster-item" data-category={tshirt.category}>
+            filteredBrands.map(brand => (
+              <div key={brand.id} className="poster-item" data-category={brand.category}>
                 <img 
-                  src={tshirt.image_url || '/project/vedio editing/tshirt.jpg'} 
-                  alt={tshirt.title}
+                  src={brand.image_url || '/project/vedio editing/brand.jpg'} 
+                  alt={brand.title}
                   onError={(e) => {
-                    e.target.src = '/project/vedio editing/tshirt.jpg'
+                    e.target.src = '/project/vedio editing/brand.jpg'
                   }}
                 />
-                <h3>{tshirt.title}</h3>
+                <h3>{brand.title}</h3>
                 <div className="product-item">
-                  <p className="item-info">{tshirt.description || tshirt.category}</p>
+                  <p className="item-info">{brand.description || brand.category}</p>
                 </div>
               </div>
             ))
@@ -134,4 +134,4 @@ const TshirtPage = () => {
   )
 }
 
-export default TshirtPage
+export default BrandPage

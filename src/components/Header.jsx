@@ -46,11 +46,11 @@ const Header = () => {
                           <div className="dropdown__menu">
                             <ul>
                               <li></li>
-                              <li><a href="#">MERCHBID</a></li>
-                              <li><a href="#">Rainbow Dockyards</a></li>
-                              <li><a href="#">KITAB Hut</a></li>
-                              <li><a href="#">ONOORA</a></li>
-                              <li><a href="#">Afsin Traders</a></li>
+                              <li><Link to="/brand">MERCHBID</Link></li>
+                              <li><Link to="/brand">Rainbow Dockyards</Link></li>
+                              <li><Link to="/brand">KITAB Hut</Link></li>
+                              <li><Link to="/brand">ONOORA</Link></li>
+                              <li><Link to="/brand">Afsin Traders</Link></li>
                             </ul>
                           </div>
                         </li>
@@ -78,7 +78,7 @@ const Header = () => {
                     {/* Right side links */}
                     <div className="nav-right" style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
                       <ul>
-                        <li><a href="#" className="linkstyle">video</a></li>
+                        <li><Link to="/video" className="linkstyle">video</Link></li>
                         <li>
                           <Link to="/graphic" className="linkstyle">graphics</Link>
                         </li>

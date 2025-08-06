@@ -1,0 +1,428 @@
+/* Brands Page Styles */
+
+/* Poster Gallery Styles */
+.poster-gallery {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #121212;
+  color: white;
+}
+
+.poster-gallery h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  color: #e04b18;
+}
+
+.poster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.poster-item {
+  background-color: #252525;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s;
+}
+
+.poster-item:hover {
+  transform: translateY(-5px);
+}
+
+.poster-item img {
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #e04b18;
+}
+
+.poster-item h3 {
+  margin: 10px;
+  font-family: "Oswald", sans-serif;
+  font-size: 22px;
+  color: #e04b18;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px 10px 10px;
+}
+
+.item-info {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+/* Portfolio Item Styles */
+.portfolio-item {
+  position: relative;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-image {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-item:hover .portfolio-image img {
+  transform: scale(1.1);
+}
+
+.portfolio-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(224, 75, 24, 0.9), rgba(224, 75, 24, 0.7));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+.portfolio-item:hover .portfolio-over {
+  opacity: 1;
+  visibility: visible;
+}
+
+.portfolio-over .portfolio-content {
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.portfolio-over .portfolio-content h4 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.portfolio-over .portfolio-content h4 a {
+  color: white;
+  text-decoration: none;
+}
+
+.portfolio-over .portfolio-content p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+.portfolio-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.portfolio-tags .tag {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+}
+
+.details-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: white;
+  color: #E04B18;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.portfolio-item:hover .details-btn {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.details-btn:hover {
+  background: #E04B18;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Portfolio Content Below Image */
+.portfolio-item .portfolio-content {
+  padding: 25px;
+}
+
+.portfolio-item .portfolio-content h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+.portfolio-item .portfolio-content h4 a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.portfolio-item .portfolio-content h4 a:hover {
+  color: #E04B18;
+}
+
+.portfolio-item .portfolio-content p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Service Item Styles */
+.service-item {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  border-color: #E04B18;
+}
+
+.service-item .icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(45deg, #E04B18, #ff6b3d);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  transition: all 0.4s ease;
+}
+
+.service-item:hover .icon {
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(224, 75, 24, 0.3);
+}
+
+.service-item .icon i {
+  font-size: 32px;
+  color: white;
+}
+
+.service-item h4 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.service-item h4 a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.service-item:hover h4 a {
+  color: #E04B18;
+}
+
+.service-item p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Page Banner Styles */
+.page-banner-area {
+  background: linear-gradient(135deg, #E04B18 0%, #ff6b3d 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-banner-area::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/assets/images/custom/pattern.png') repeat;
+  opacity: 0.1;
+}
+
+.banner-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.page-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.breadcrumb {
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb-item {
+  font-size: 16px;
+}
+
+.breadcrumb-item a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+  color: white;
+}
+
+.breadcrumb-item.active {
+  color: white;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: '/';
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 10px;
+}
+
+/* CTA Section */
+.cta-area {
+  background: linear-gradient(135deg, #333 0%, #555 100%);
+  position: relative;
+}
+
+.cta-area::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/assets/images/custom/cta-pattern.png') repeat;
+  opacity: 0.05;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.theme-btn {
+  background: linear-gradient(45deg, #E04B18, #ff6b3d);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 16px;
+}
+
+.theme-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(224, 75, 24, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.theme-btn i {
+  transition: transform 0.3s ease;
+}
+
+.theme-btn:hover i {
+  transform: translateX(5px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 36px;
+  }
+  
+  .portfolio-image {
+    height: 200px;
+  }
+  
+  .service-item {
+    padding: 30px 20px;
+  }
+  
+  .service-item .icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .service-item .icon i {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-title {
+    font-size: 28px;
+  }
+  
+  .portfolio-item .portfolio-content {
+    padding: 20px;
+  }
+  
+  .service-item {
+    padding: 25px 15px;
+  }
+}

@@ -5,7 +5,9 @@ import Footer from '../components/Footer'
 import Preloader from '../components/Preloader'
 import ScrollToTop from '../components/ScrollToTop'
 import CustomCursor from '../components/CustomCursor'
+import HireMe from '../components/HireMe'
 import { useVideos, useRecentWorks } from '../hooks/useSupabaseData'
+import '../styles/hireme.css'
 
 const Home = () => {
   const videoRef = useRef(null)
@@ -423,6 +425,7 @@ const Home = () => {
       </section>
 
       <Footer />
+      <HireMe />
     </>
   )
 }

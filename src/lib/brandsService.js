@@ -1,34 +1,34 @@
 import { supabase } from './supabase.js'
 
-export const tshirtsService = {
-  getAllTshirts: async () => {
+export const brandsService = {
+  getAllBrands: async () => {
     const { data, error } = await supabase
-      .from('tshirts')
+      .from('brands')
       .select('*')
       .order('order_index', { ascending: true })
     if (error) throw error
     return data
   },
-  createTshirt: async (tshirt) => {
+  createBrand: async (brand) => {
     const { data, error } = await supabase
-      .from('tshirts')
-      .insert([tshirt])
+      .from('brands')
+      .insert([brand])
       .select()
     if (error) throw error
     return data[0]
   },
-  updateTshirt: async (id, tshirt) => {
+  updateBrand: async (id, brand) => {
     const { data, error } = await supabase
-      .from('tshirts')
-      .update(tshirt)
+      .from('brands')
+      .update(brand)
       .eq('id', id)
       .select()
     if (error) throw error
     return data[0]
   },
-  deleteTshirt: async (id) => {
+  deleteBrand: async (id) => {
     const { error } = await supabase
-      .from('tshirts')
+      .from('brands')
       .delete()
       .eq('id', id)
     if (error) throw error

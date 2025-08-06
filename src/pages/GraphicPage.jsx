@@ -105,7 +105,7 @@ const GraphicDesignPage = () => {
           ) : filteredGraphics.length > 0 ? (
             filteredGraphics.map((item) => (
               <div key={item.id} className="design-item" data-category={item.category}>
-                <img src={item.image_url} alt={item.title} className="graphic-image" />
+                <img src={item.image_url} alt={item.title} className="graphic-image" loading="lazy" />
                 <h3>{item.title}</h3>
                 <div className="client-info">
                   <p className="client-description">{item.description}</p>

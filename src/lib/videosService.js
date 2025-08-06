@@ -9,5 +9,28 @@ export const videosService = {
     if (error) throw error
     return data
   },
-  // Other methods can be added later if needed
+  createVideo: async (video) => {
+  const { data, error } = await supabase
+    .from('videos')
+    .insert([video])
+    .select()
+  if (error) throw error
+  return data[0]
+},
+updateVideo: async (id, video) => {
+  const { data, error } = await supabase
+    .from('videos')
+    .update(video)
+    .eq('id', id)
+    .select()
+  if (error) throw error
+  return data[0]
+},
+deleteVideo: async (id) => {
+  const { error } = await supabase
+    .from('videos')
+    .delete()
+    .eq('id', id)
+  if (error) throw error
+}
 }
