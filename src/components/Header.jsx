@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { brandsService } from '../lib/brandsService'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [brandsCategories, setBrandsCategories] = useState([])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +19,19 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    const loadBrands = async () => {
+      try {
+        const brands = await brandsService.getAllBrands();
+        const activeBrands = brands.filter(brand => brand.is_active);
+        setBrandsCategories(activeBrands.map(brand => brand.title));
+      } catch (error) {
+        console.error('Failed to load brands:', error);
+      }
+    };
+    loadBrands();
+  }, []);
 
   return (
     <>
@@ -45,12 +60,13 @@ const Header = () => {
                           </span>
                           <div className="dropdown__menu">
                             <ul>
-                              <li></li>
-                              <li><Link to="/brand">MERCHBID</Link></li>
-                              <li><Link to="/brand">Rainbow Dockyards</Link></li>
-                              <li><Link to="/brand">KITAB Hut</Link></li>
-                              <li><Link to="/brand">ONOORA</Link></li>
-                              <li><Link to="/brand">Afsin Traders</Link></li>
+                              {brandsCategories.length > 0 ? (
+                                brandsCategories.map(title => (
+                                  <li key={title}><Link to={`/brand/${encodeURIComponent(title)}`}>{title}</Link></li>
+                                ))
+                              ) : (
+                                <li><Link to="/brand">All Brands</Link></li>
+                              )}
                             </ul>
                           </div>
                         </li>

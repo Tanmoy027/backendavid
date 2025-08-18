@@ -33,7 +33,7 @@ function App() {
         <Route path="/videos" element={<VideosPage />} /> 
         <Route path="/tshirts-package" element={<TshirtsPackagePage />} />
         <Route path="/graphics-package" element={<GraphicsPackagePage />} />
-        <Route path="/brand" element={<BrandPage />} />
+        <Route path="/brand/:brandTitle?" element={<BrandPage />} />
         <Route path="/admin-brands" element={<BrandsAdminPage />} />
       </Routes>
     </div>

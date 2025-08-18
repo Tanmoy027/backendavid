@@ -162,7 +162,7 @@ const Home = () => {
             </div>
             <div className="col-lg-3 pt-30">
               <div className="hero-content wow fadeInUp delay-0-4s">
-                <p>Hi, I'm Walker, a passionate UX Designer dedicated to creating user-friendly digital experiences.</p>
+                <p>Hi, I'm Abid, a passionate UX Designer dedicated to creating user-friendly digital experiences.</p>
                 <a className="theme-btn" href="index.html">Get In touch</a>
               </div>
             </div>
